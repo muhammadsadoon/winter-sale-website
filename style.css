@@ -8,7 +8,7 @@
     overflow: hidden;
     height: 100dvh;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 999999;
@@ -59,9 +59,8 @@
 
 /*main container*/
 .container {
-    min-height: 80vh;
+    min-height: 84vh;
     width: 100%;
-    height: 84vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,6 +77,7 @@
     align-items: start;
     justify-content: space-around;
     flex-direction: column;
+    padding: 10px 20px;
 }
 
 .saleDiv {
@@ -128,11 +128,16 @@
 }
 
 .bottom-side-bar {
-    height: 260px;
     margin: 0px auto;
-    width: 220px;
-    background: url("./img/subtract1.png") 100% / 100% no-repeat;
+    width: 100%;
     display: flex;
+    padding: 30px;
+    height: 280px;
+    background-image: url("./img/subtract1.png");
+    background-size: 100% 100%;
+    background-position: center;
+    object-fit: cover;
+    background-repeat: no-repeat;
     flex-direction: column;
     position: relative;
     align-items: center;
@@ -171,7 +176,7 @@
 .displaySide {
     min-width: 300px;
     width: 60%;
-    height: 100%;
+    min-height: 84vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -192,14 +197,14 @@
 .boy-banner img:nth-child(1),
 .boy-banner img:nth-child(3) {
     position: absolute;
-    height: 80%;
+    height: 400px;
     left: 0px;
     top: 10%;
 }
 
 .boy-pic {
     position: absolute;
-    height: 150%;
+    height: 800px;
     width: fit-content;
     left: 15%;
     top: -10%;
@@ -222,9 +227,11 @@
     width: 100%;
     height: 200px;
     z-index: 300;
-    background: url("./img/pic-bannar-bottom.png") no-repeat;
+    background-image: url("./img/pic-bannar-bottom.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     object-fit: cover;
-    background-size: cover;
     border-radius: 0px 0px 20px 20px;
     display: flex;
     align-items: center;
@@ -255,7 +262,7 @@
 .tageListSide {
     min-width: 300px;
     width: 20%;
-    height: 100%;
+    min-height: 100%;
     transform: translate(0px);
 }
 
@@ -381,9 +388,106 @@
         transform: translateY(100%);
     }
 }
+
 @keyframes moveDownNavbar {
-    from{
+    from {
         transform: translateY(-20vh);
         opacity: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .tageListSide {
+        display: none;
+    }
+
+    .boy-banner img:nth-child(1),
+    .boy-banner img:nth-child(3) {
+        height: 300px;
+    }
+
+    .boy-pic {
+        height: 800px;
+        left: 5%;
+    }
+}
+
+@media (max-width: 780px) {
+    .container {
+        padding: 30px 20px;
+        flex-direction: column;
+        overflow: auto; 
+    }
+
+    .saleSide {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .boy-pic,
+    .boy-banner img:nth-child(1),
+    .boy-banner img:nth-child(3) {
+        top: 0;
+        height: 100%;
+        width: 300px;
+        z-index: 200;
+    }
+
+    .boy-banner {
+        width: 300px;
+        margin: 0px auto;
+    }
+
+    .boy-banner img:nth-child(1),
+    .boy-banner img:nth-child(3) {
+        width: 300px;
+        height: 400px;
+    }
+
+    .displaySide .bottom-banner {
+        z-index: 310;
+    }
+
+    .displaySide .bottom-banner {
+        flex-direction: column;
+        justify-content: end;
+        gap: 10px;
+    }
+
+    .bottom-banner .banner-icons {
+        width: 100%;
+        height: 50px;
+    }
+
+    .displaySide .bottom-banner .banner-icons ul {
+        flex-direction: row;
+    }
+
+    .boy-pic {
+        z-index: 200;
+        height: 600px;
+        margin: auto;
+    }
+
+    .bottom-side-bar {
+        width: 100%;
+    }
+
+    .tageListSide {
+        display: block;
+        width: 100%;
+    }
+
+    .displaySide {
+        width: 100%;
+    }
+
+    .loader img {
+        height: 200px;
+        width: 250px;
+    }
+
+    .navbar nav {
+        display: none;
     }
 }
